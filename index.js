@@ -2,41 +2,28 @@
  * Created by chenlizan on 16-7-14.
  */
 
+'use strict';
 
-//(function (module) {
-//    'use strict';
-//
-//    var express,
-//        responsePrototype,
-//        statusCodes = require('./statusCodes.js');
-//    try {
-//        express = require('express');
-//        responsePrototype = express.response;
-//    } catch (e) {
-//        throw new Error('express-status required express: please npm install express. ' + e.message);
-//    }
-//
-//    Object.keys(statusCodes).forEach(function (status) {
-//        Object.defineProperty(module.exports, status, {
-//            value: statusCodes[status].code
-//        });
-//
-//        responsePrototype[status] = function () {
-//            return this.status(statusCodes[status].code);
-//        };
-//
-//    });
-//
-//}(module));
+var _statusCodes = require('./statusCodes.js');
 
-var statusCodes = require('./statusCodes.js');
-
-module.exports = function (req, res, next) {
-    //Object.keys(statusCodes).forEach(function (status) {
-    //    res.__proto__[status] = function () {
-    //        return this.status(statusCodes[status].status).json(statusCodes[status].message);
-    //    };
-    //});
-    statusCodes.call(res);
+function middleware(req, res, next) {
+    Object.keys(_statusCodes).forEach(function (status) {
+        res.__proto__[status] = function () {
+            this.setHeader("Content-Type", "application/json; charset=utf-8");
+            this.statusCode = _statusCodes[status].status;
+            this.end(JSON.stringify(_statusCodes[status].message));
+            return;
+        };
+    });
     next();
+}
+
+module.exports.use = function use(statusCodes) {
+    if (statusCodes) {
+        _statusCodes = statusCodes;
+        return middleware;
+    }
+    else {
+        return middleware;
+    }
 }
