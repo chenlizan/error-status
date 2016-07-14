@@ -18,6 +18,8 @@ function middleware(req, res, next) {
     next();
 }
 
+module.exports = middleware;
+
 module.exports.use = function use(statusCodes) {
     if (statusCodes) {
         _statusCodes = statusCodes;
