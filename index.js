@@ -10,7 +10,7 @@ function middleware(req, res, next) {
     Object.keys(_statusCodes).forEach(function (status) {
         res.__proto__[status] = function () {
             this.setHeader("Content-Type", "application/json; charset=utf-8");
-            this.statusCode = _statusCodes[status].status;
+            this.statusCode = _statusCodes[status].code;
             this.end(JSON.stringify(_statusCodes[status].message));
             return;
         };

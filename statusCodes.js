@@ -71,7 +71,7 @@ module.exports = {
 //请求失败，Request is invalid
     BadRequest: {
 
-        status: 400,
+        code: 400,
         message: {
             statusCode: 400001,
             message: '请求失败'
@@ -80,7 +80,7 @@ module.exports = {
 
 //请求的token是无效的,Token is invalid
     TokenInvalid: {
-        status: 401,
+        code: 401,
         message: {
             statusCode: 401001,
             message: '请求的token是无效的'
@@ -89,7 +89,7 @@ module.exports = {
 
 //请求非法, Request is forbidden
     Forbidden: {
-        status: 403,
+        code: 403,
         message: {
             statusCode: 403001,
             message: '请求非法'
@@ -98,7 +98,7 @@ module.exports = {
 
 //用户已经存在,User Already Exist
     UserAlreadyExist: {
-        status: 403,
+        code: 403,
         message: {
             statusCode: 403002,
             message: '用户已经存在'
@@ -107,7 +107,7 @@ module.exports = {
 
 //用户没有找到,Can not find the user
     UserNotFound: {
-        status: 403,
+        code: 403,
         message: {
             statusCode: 403003,
             message: '用户没有找到'
@@ -116,7 +116,7 @@ module.exports = {
 
 //密码不正确,The password is incorrect
     PasswordIncorrect: {
-        status: 403,
+        code: 403,
         message: {
             statusCode: 403004,
             message: '密码不正确'
@@ -125,7 +125,7 @@ module.exports = {
 
 //达到最大重试次数,Reached the max attemps
     MaxAttemps: {
-        status: 403,
+        code: 403,
         message: {
             statusCode: 403005,
             message: '达到最大重试次数'
@@ -134,7 +134,7 @@ module.exports = {
 
 //未找到对应api,Request not found'
     NotFound: {
-        status: 404,
+        code: 404,
         message: {
             statusCode: 404001,
             message: '未找到对应api'
@@ -143,7 +143,7 @@ module.exports = {
 
 //违反唯一约束,Unique constraint failed for this request
     Conflict: {
-        status: 409,
+        code: 409,
         message: {
             statusCode: 409001,
             message: '违反唯一约束'
@@ -152,7 +152,7 @@ module.exports = {
 
 //不支持的请求,Unsupported protocol version
     Unsupported: {
-        status: 410,
+        code: 410,
         message: {
             statusCode: 410001,
             message: '不支持的请求'
@@ -161,7 +161,7 @@ module.exports = {
 
 //超出内容限制,Over capacity
     OverCapacity: {
-        status: 412,
+        code: 412,
         message: {
             statusCode: 412001,
             message: '超出内容限制'
@@ -170,7 +170,7 @@ module.exports = {
 
 //请求体过长,Request entity is too large
     TooLarge: {
-        status: 413,
+        code: 413,
         message: {
             statusCode: 413001,
             message: '请求体过长'
@@ -179,7 +179,7 @@ module.exports = {
 
 //验证码超过长度限制
     verifyCodeTooLarge: {
-        status: 413,
+        code: 413,
         message: {
             statusCode: 413002,
             message: '验证码超过长度限制'
@@ -188,7 +188,7 @@ module.exports = {
 
 //账户已被封禁
     LOCKED: {
-        status: 423,
+        code: 423,
         message: {
             statusCode: 423001,
             message: "账户已被封禁"
@@ -197,7 +197,7 @@ module.exports = {
 
 //依赖检查失败,This request failed because its dependencies is missing or invalid
     DependencyFailure: {
-        status: 424,
+        code: 424,
         message: {
             statusCode: 424001,
             message: '依赖检查失败'
@@ -206,7 +206,7 @@ module.exports = {
 
 //请使用https安全通道请求,This request require HTTPS to ensure security
     Insecure: {
-        status: 426,
+        code: 426,
         message: {
             statusCode: 426001,
             message: '请使用https安全通道请求'
@@ -215,7 +215,7 @@ module.exports = {
 
 //未知服务器内部错误,ServerInternalError
     ServerInternalError: {
-        status: 500,
+        code: 500,
         message: {
             statusCode: 500001,
             message: '服务器开小差了'
@@ -224,7 +224,7 @@ module.exports = {
 
 //未知nginx内部错误,Upstream service error
     UpstreamError: {
-        status: 502,
+        code: 502,
         message: {
             statusCode: 502001,
             message: '未知nginx内部错误'
@@ -233,7 +233,7 @@ module.exports = {
 
 //未知服务器内部错误,ServerInternalError
     ServerMaintain: {
-        status: 503,
+        code: 503,
         message: {
             statusCode: 503001,
             message: '服务器正在维护'
