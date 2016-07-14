@@ -13,7 +13,5 @@ Example
 -------
 ``` javascript
 var errorStatus = require('error-status-helper');
-
-
-
+http.createServer(errorStatus).listen(3000);
 ```
