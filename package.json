@@ -1,19 +1,19 @@
 {
   "name": "error-status-hepler",
   "version": "1.0.0",
-  "description": "Extends node.js response prototype with status codes helper methods.",
+  "description": "Extends node.js response middleware with status codes helper methods.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chenlizan/error-status.git"
+    "url": "git+https://github.com/chenlizan/error-status-helper.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chenlizan/error-status/issues"
+    "url": "https://github.com/chenlizan/error-status-helper/issues"
   },
-  "homepage": "https://github.com/chenlizan/error-status#readme"
+  "homepage": "https://github.com/chenlizan/error-status-helper#readme"
 }
