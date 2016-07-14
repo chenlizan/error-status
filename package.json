@@ -1,5 +1,5 @@
 {
-  "name": "error-status",
+  "name": "error-status-hepler",
   "version": "1.0.0",
   "description": "Extends node.js response prototype with status codes helper methods.",
   "main": "index.js",
