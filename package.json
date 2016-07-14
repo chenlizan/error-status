@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/chenlizan/error-status-helper.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "chenlizan",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/chenlizan/error-status-helper/issues"
   },

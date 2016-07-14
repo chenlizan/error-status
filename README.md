@@ -1,5 +1,5 @@
 # error-status-helper
-Extends node.js response middleware with status codes helper methods.
+Extends express response middleware with status codes helper methods.
 
 
 Installation
@@ -11,7 +11,13 @@ $ npm install error-status-helper
 
 Example
 -------
+
 ``` javascript
+
+var express = require('express');
 var errorStatus = require('error-status-helper');
-http.createServer(errorStatus).listen(3000);
+
+var app = express();
+app.use(errorStatus);
+
 ```
