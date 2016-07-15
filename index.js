@@ -5,13 +5,17 @@
 'use strict';
 
 var _statusCodes = require('./statusCodes.js');
+var _extend = false;
 
 function middleware(req, res, next) {
-    Object.keys(_statusCodes).forEach(function (status) {
-        res.__proto__[status] = function () {
-            return this.status(_statusCodes[status].status).json(_statusCodes[status].message);
-        };
-    });
+    if (!_extend) {
+        Object.keys(_statusCodes).forEach(function (status) {
+            res.__proto__[status] = function () {
+                return this.status(_statusCodes[status].code).json(_statusCodes[status].message);
+            };
+        });
+    }
+    _extend = true;
     next();
 }
 
