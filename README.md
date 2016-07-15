@@ -24,13 +24,13 @@ app.use(errorStatus);
 
 
 custom example
+
 var _statusCodes = require('./statusCodes.js');
 var errorStatus = require('error-status-hepler').use(_statusCodes);
 
 statusCode.js format
 module.exports = {
     BadRequest: {
-
         code: 400,
         message: {
             message: 'Bad Request'
