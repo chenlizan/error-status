@@ -32,6 +32,7 @@ var errorStatus = require('error-status-hepler').use(_statusCodes);
 var app = express();
 app.use(errorStatus);
 
+
 statusCode.js format
 module.exports = {
     BadRequest: {
