@@ -1,6 +1,6 @@
 {
   "name": "error-status-hepler",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Extends node.js response middleware with status codes helper methods.",
   "main": "index.js",
   "scripts": {
