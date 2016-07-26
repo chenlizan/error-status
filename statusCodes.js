@@ -4,241 +4,510 @@
 
 'use strict';
 
-//1定义
-//2消息（1字头）
-//▪ 100 Continue
-//▪ 101 Switching Protocols
-//▪ 102 Processing
-//3成功（2字头）
-//▪ 200 OK
-//▪ 201 Created
-//▪ 202 Accepted
-//▪ 203 Non-Authoritative Information
-//▪ 204 No Content
-//▪ 205 Reset Content
-//▪ 206 Partial Content
-//▪ 207 Multi-Status
-//4重定向（3字头）
-//▪ 300 Multiple Choices
-//▪ 301 Moved Permanently
-//▪ 302 Move temporarily
-//▪ 303 See Other
-//▪ 304 Not Modified
-//▪ 305 Use Proxy
-//▪ 306 Switch Proxy
-//▪ 307 Temporary Redirect
-//5请求错误（4字头）
-//▪ 400 Bad Request
-//▪ 401 Unauthorized
-//▪ 402 Payment Required
-//▪ 403 Forbidden
-//▪ 404 Not Found
-//▪ 405 Method Not Allowed
-//▪ 406 Not Acceptable
-//▪ 407 Proxy Authentication Required
-//▪ 408 Request Timeout
-//▪ 409 Conflict
-//▪ 410 Gone
-//▪ 411 Length Required
-//▪ 412 Precondition Failed
-//▪ 413 Request Entity Too Large
-//▪ 414 Request-URI Too Long
-//▪ 415 Unsupported Media Type
-//▪ 416 Requested Range Not Satisfiable
-//▪ 417 Expectation Failed
-//▪ 421 There are too many connections from your internet address
-//▪ 422 Unprocessable Entity
-//▪ 423 Locked
-//▪ 424 Failed Dependency
-//▪ 425 Unordered Collection
-//▪ 426 Upgrade Required
-//▪ 449 Retry With
-//6服务器错误（5字头）
-//▪ 500 Internal Server Error
-//▪ 501 Not Implemented
-//▪ 502 Bad Gateway
-//▪ 503 Service Unavailable
-//▪ 504 Gateway Timeout
-//▪ 505 HTTP Version Not Supported
-//▪ 506 Variant Also Negotiates
-//▪ 507 Insufficient Storage
-//▪ 509 Bandwidth Limit Exceeded
-//▪ 510 Not Extended
-//▪ 600 Unparseable Response Headers
-
 module.exports = {
 
-//请求失败，Request is invalid
-    BadRequest: {
+    Continue: {
+        code: 100,
+        message: {
+            en: "Continue",
+            chs: "继续请求"
+        }
+    },
 
+    Switching_Protocols: {
+        code: 101,
+        message: {
+            en: "Switching Protocols",
+            chs: "切换协议"
+        }
+    },
+
+    Processing: {
+        code: 102,
+        message: {
+            en: "Processing",
+            chs: "继续执行"
+        }
+    },
+
+    OK: {
+        code: 200,
+        message: {
+            en: "OK",
+            chs: "请求成功"
+        }
+    },
+
+    Created: {
+        code: 201,
+        message: {
+            en: "Created",
+            chs: "已创建"
+        }
+    },
+
+    Accepted: {
+        code: 202,
+        message: {
+            en: "Accepted",
+            chs: '已接受'
+        }
+    },
+
+    Non_authoritative_Information: {
+        code: 203,
+        message: {
+            en: "Non-authoritative Information",
+            chs: '非授权信息'
+        }
+    },
+
+    No_Content: {
+        code: 204,
+        message: {
+            en: "No Content",
+            chs: "无内容"
+        }
+    },
+
+    Reset_Content: {
+        code: 205,
+        message: {
+            en: "Reset Content",
+            chs: "重置内容"
+        }
+    },
+
+    Partial_Content: {
+        code: 206,
+        message: {
+            en: "Partial Content",
+            chs: "部分内容"
+        }
+    },
+
+    Multi_Status: {
+        code: 207,
+        message: {
+            en: "Multi-Status",
+            chs: "多状态"
+        }
+    },
+
+    Already_Reported: {
+        code: 208,
+        message: {
+            en: "Already Reported",
+            chs: "已应答"
+        }
+    },
+
+    IM_Used: {
+        code: 266,
+        message: {
+            en: "IM Used",
+            chs: "使用实例"
+        }
+    },
+
+    Multiple_Choices: {
+        code: 300,
+        message: {
+            en: "Multiple Choices",
+            chs: "多种选择"
+        }
+    },
+
+    Moved_Permanently: {
+        code: 301,
+        message: {
+            en: "Moved Permanently",
+            chs: "永久移动"
+        }
+    },
+
+    Move_temporarily: {
+        code: 302,
+        message: {
+            en: "Move temporarily",
+            chs: "临时移动"
+        }
+    },
+
+    See_Other: {
+        code: 303,
+        message: {
+            en: "See Other",
+            chs: "查看其他位置"
+        }
+    },
+
+    Not_Modified: {
+        code: 304,
+        message: {
+            en: "Not Modified",
+            chs: "未修改"
+        }
+    },
+
+    Use_Proxy: {
+        code: 305,
+        message: {
+            en: "Use Proxy",
+            chs: "使用代理"
+        }
+    },
+
+    Temporary_Redirect: {
+        code: 307,
+        message: {
+            en: "Temporary Redirect",
+            chs: "临时重定向"
+        }
+    },
+
+    Permanent_Redirect: {
+        code: 308,
+        message: {
+            en: "Permanent Redirect",
+            chs: "永久重定向"
+        }
+    },
+
+    Bad_Request: {
         code: 400,
         message: {
-            statusCode: 400001,
-            message: '请求失败'
+            en: "Bad Request",
+            chs: "错误请求"
         }
     },
 
-//请求的token是无效的,Token is invalid
-    TokenInvalid: {
+    Unauthorized: {
         code: 401,
         message: {
-            statusCode: 401001,
-            message: '请求的token是无效的'
+            en: "Unauthorized",
+            chs: "未授权"
         }
     },
 
-//请求非法, Request is forbidden
+    Payment_Required: {
+        code: 402,
+        message: {
+            en: "Payment Required",
+            chs: "支付请求"
+        }
+    },
+
     Forbidden: {
         code: 403,
         message: {
-            statusCode: 403001,
-            message: '请求非法'
+            en: "Forbidden",
+            chs: "禁止"
         }
     },
 
-//用户已经存在,User Already Exist
-    UserAlreadyExist: {
-        code: 403,
-        message: {
-            statusCode: 403002,
-            message: '用户已经存在'
-        }
-    },
-
-//用户没有找到,Can not find the user
-    UserNotFound: {
-        code: 403,
-        message: {
-            statusCode: 403003,
-            message: '用户没有找到'
-        }
-    },
-
-//密码不正确,The password is incorrect
-    PasswordIncorrect: {
-        code: 403,
-        message: {
-            statusCode: 403004,
-            message: '密码不正确'
-        }
-    },
-
-//达到最大重试次数,Reached the max attemps
-    MaxAttemps: {
-        code: 403,
-        message: {
-            statusCode: 403005,
-            message: '达到最大重试次数'
-        }
-    },
-
-//未找到对应api,Request not found'
-    NotFound: {
+    Not_Found: {
         code: 404,
         message: {
-            statusCode: 404001,
-            message: '未找到对应api'
+            en: "Not Found",
+            chs: "未找到"
         }
     },
 
-//违反唯一约束,Unique constraint failed for this request
+    Method_Not_Allowed: {
+        code: 405,
+        message: {
+            en: "Method Not Allowed",
+            chs: "方法禁用"
+        }
+    },
+
+    Not_Acceptable: {
+        code: 406,
+        message: {
+            en: "Not Acceptable",
+            chs: "不接受"
+        }
+    },
+
+    Proxy_Authentication_Required: {
+        code: 407,
+        message: {
+            en: "Proxy Authentication Required",
+            chs: "需要代理授权"
+        }
+    },
+
+    Request_Timeout: {
+        code: 408,
+        message: {
+            en: "Request Timeout",
+            chs: "请求超时"
+        }
+    },
+
     Conflict: {
         code: 409,
         message: {
-            statusCode: 409001,
-            message: '违反唯一约束'
+            en: "Conflict",
+            chs: "冲突"
         }
     },
 
-//不支持的请求,Unsupported protocol version
-    Unsupported: {
+    Gone: {
         code: 410,
         message: {
-            statusCode: 410001,
-            message: '不支持的请求'
+            en: "Gone",
+            chs: "已删除"
         }
     },
 
-//超出内容限制,Over capacity
-    OverCapacity: {
+    Length_Required: {
+        code: 411,
+        message: {
+            en: "Length Required",
+            chs: "需要有效长度"
+        }
+    },
+
+    Precondition_Failed: {
         code: 412,
         message: {
-            statusCode: 412001,
-            message: '超出内容限制'
+            en: "Precondition Failed",
+            chs: "未满足前提条件"
         }
     },
 
-//请求体过长,Request entity is too large
-    TooLarge: {
+    Payload_Too_Large: {
         code: 413,
         message: {
-            statusCode: 413001,
-            message: '请求体过长'
+            en: "Payload Too Large",
+            chs: "请求实体过大"
         }
     },
 
-//验证码超过长度限制
-    verifyCodeTooLarge: {
-        code: 413,
+    Request_URI_Too_Long: {
+        code: 414,
         message: {
-            statusCode: 413002,
-            message: '验证码超过长度限制'
+            en: "Request-URI Too Long",
+            chs: "请求的 URI 过长"
         }
     },
 
-//账户已被封禁
-    LOCKED: {
+    Unsupported_Media_Type: {
+        code: 415,
+        message: {
+            en: "Unsupported Media Type",
+            chs: "不支持的媒体类型"
+        }
+    },
+
+    Requested_Range_Not_Satisfiable: {
+        code: 416,
+        message: {
+            en: "Requested Range Not Satisfiable",
+            chs: "请求范围不符合要求"
+        }
+    },
+
+    Expectation_Failed: {
+        code: 417,
+        message: {
+            en: "Expectation Failed",
+            chs: "未满足期望值"
+        }
+    },
+
+    I_am_a_teapot: {
+        code: 418,
+        message: {
+            en: "I'm a teapot",
+            chs: "我是一个茶罐"
+        }
+    },
+
+    Misdirected_Request: {
+        code: 421,
+        message: {
+            en: "Misdirected Request",
+            chs: "错误的请求"
+        }
+    },
+
+    Unprocessable_Entity: {
+        code: 422,
+        message: {
+            en: "Unprocessable Entity",
+            chs: "无法处理的实体"
+        }
+    },
+
+    Locked: {
         code: 423,
         message: {
-            statusCode: 423001,
-            message: "账户已被封禁"
+            en: "Locked",
+            chs: "当前资源被锁定"
         }
     },
 
-//依赖检查失败,This request failed because its dependencies is missing or invalid
-    DependencyFailure: {
+    Failed_Dependency: {
         code: 424,
         message: {
-            statusCode: 424001,
-            message: '依赖检查失败'
+            en: "Failed Dependency",
+            chs: "依赖失败"
         }
     },
 
-//请使用https安全通道请求,This request require HTTPS to ensure security
-    Insecure: {
+    Upgrade_Required: {
         code: 426,
         message: {
-            statusCode: 426001,
-            message: '请使用https安全通道请求'
+            en: "Upgrade Required",
+            chs: "请求升级"
         }
     },
 
-//未知服务器内部错误,ServerInternalError
-    ServerInternalError: {
+    Precondition_Required: {
+        code: 428,
+        message: {
+            en: "Precondition Required",
+            chs: "要求先决条件"
+        }
+    },
+
+    Too_Many_Requests: {
+        code: 429,
+        message: {
+            en: "Too Many Requests",
+            chs: "太多请求"
+        }
+    },
+
+    Request_Header_Fields_Too_Large: {
+        code: 431,
+        message: {
+            en: "Request Header Fields Too Large",
+            chs: "请求头字段太大"
+        }
+    },
+
+    Connection_Closed_Without_Response: {
+        code: 444,
+        message: {
+            en: "Connection Closed Without Response",
+            chs: "无响应连接关闭"
+        }
+    },
+
+    Unavailable_For_Legal_Reasons: {
+        code: 451,
+        message: {
+            en: "Unavailable For Legal Reasons",
+            chs: "由于法律原因而无效"
+        }
+    },
+
+    Client_Closed_Request: {
+        code: 499,
+        message: {
+            en: "Client Closed Request",
+            chs: "客户端关闭请求"
+        }
+    },
+
+    Internal_Server_Error: {
         code: 500,
         message: {
-            statusCode: 500001,
-            message: '服务器开小差了'
+            en: "Internal Server Error",
+            chs: "服务器内部错误"
         }
     },
 
-//未知nginx内部错误,Upstream service error
-    UpstreamError: {
+    Not_Implemented: {
+        code: 501,
+        message: {
+            en: "Not Implemented",
+            chs: "尚未实施"
+        }
+    },
+
+    Bad_Gateway: {
         code: 502,
         message: {
-            statusCode: 502001,
-            message: '未知nginx内部错误'
+            en: "Bad Gateway",
+            chs: "错误网关"
         }
     },
 
-//未知服务器内部错误,ServerInternalError
-    ServerMaintain: {
+    Service_Unavailable: {
         code: 503,
         message: {
-            statusCode: 503001,
-            message: '服务器正在维护'
+            en: "Service Unavailable",
+            chs: "服务不可用"
+        }
+    },
+
+    Gateway_Timeout: {
+        code: 504,
+        message: {
+            en: "Gateway Timeout",
+            chs: "网关超时"
+        }
+    },
+
+    HTTP_Version_Not_Supported: {
+        code: 505,
+        message: {
+            en: "HTTP Version Not Supported",
+            chs: "HTTP 版本不受支持"
+        }
+    },
+
+    Variant_Also_Negotiates: {
+        code: 506,
+        message: {
+            en: "Variant Also Negotiates",
+            chs: "透明内容协商协议"
+        }
+    },
+
+    Insufficient_Storage: {
+        code: 507,
+        message: {
+            en: "Insufficient Storage",
+            chs: "存储空间不足"
+        }
+    },
+
+    Loop_Detected: {
+        code: 508,
+        message: {
+            en: "Loop Detected",
+            chs: "环路检查"
+        }
+    },
+
+    Not_Extended: {
+        code: 510,
+        message: {
+            en: "Not Extended",
+            chs: "没有扩展"
+        }
+    },
+
+    Network_Authentication_Required: {
+        code: 511,
+        message: {
+            en: "Network Authentication Required",
+            chs: "要求网络认证"
+        }
+    },
+
+    Network_Connect_Timeout_Error: {
+        code: 599,
+        message: {
+            en: "Network Connect Timeout Error",
+            chs: "网络连接超时错误"
         }
     }
-
 }
 

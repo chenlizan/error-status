@@ -35,12 +35,12 @@ app.use(errorStatus);
 
 statusCode.js format
 module.exports = {
-    BadRequest: {
+   Bad_Request: {
         code: 400,
         message: {
-            message: 'Bad Request'
+            en: "Bad Request"
         }
-    }
+    },
 }
 
 ```
