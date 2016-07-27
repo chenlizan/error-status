@@ -53,7 +53,13 @@ module.exports = {
 ```
 
 You using in you code only available in express
+```
+app.use("/badRequest", function (req, res, next) {
+    res.Bad_Request();
+})
 
-
-
+app.use("/forbidden", function (req, res, next) {
+    var errMsg = {statusCode: -1, message: 'you can not use this interface'};
+    res.Forbidden(errMsg);
+})
 ```
