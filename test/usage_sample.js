@@ -11,9 +11,9 @@ app.use("/badRequest", function (req, res, next) {
     res.Bad_Request();
 })
 
-app.use("/badRequest", function (req, res, next) {
-    var errMsg='you can not use this interface';
-    res.Forbidden();
+app.use("/forbidden", function (req, res, next) {
+    var errMsg = {statusCode: -1, message: 'you can not use this interface'};
+    res.Forbidden(errMsg);
 })
 
 
