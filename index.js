@@ -10,8 +10,13 @@ var _extend = false;
 function middleware(req, res, next) {
     if (!_extend) {
         Object.keys(_statusCodes).forEach(function (status) {
-            res.__proto__[status] = function () {
-                return this.status(_statusCodes[status].code).json(_statusCodes[status].message);
+            res.__proto__[status] = function (msg) {
+                if (msg) {
+                    return this.status(_statusCodes[status].code).json(msg);
+                }
+                else {
+                    return this.status(_statusCodes[status].code).json(_statusCodes[status].message);
+                }
             };
         });
     }
