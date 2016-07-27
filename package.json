@@ -1,6 +1,6 @@
 {
   "name": "error-status-helper",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Extends node.js response middleware with status codes helper methods.",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,7 @@
     "url": "git+https://github.com/chenlizan/error-status-helper.git"
   },
   "author": "chenlizan",
+  "contributors": ["donegal chen <murdercdh@hotmail.com>"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/chenlizan/error-status-helper/issues"
