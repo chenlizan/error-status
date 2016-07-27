@@ -30,7 +30,7 @@ app.use(errorStatus);
 ```
 var express = require('express');
 var _statusCodes = require('./statusCodes.js');
-var errorStatus = require('error-status-hepler').use(_statusCodes);
+var errorStatus = require('error-status-helper').use(_statusCodes);
 
 var app = express();
 app.use(errorStatus);
@@ -44,8 +44,8 @@ the default code is using the http code, you can define you own business code in
 module.exports = {
    Bad_Request: {
         code: 400,
-        statusCode:401001,
         message: {
+            statusCode:401001,
             en: "Bad Request"
         }
     },
