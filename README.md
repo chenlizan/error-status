@@ -44,8 +44,8 @@ the default code is using the http code, you can define you own business code in
 module.exports = {
    Bad_Request: {
         code: 400,
-        statusCode:401001,
         message: {
+            statusCode:401001,
             en: "Bad Request"
         }
     },
