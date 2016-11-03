@@ -1,6 +1,5 @@
 var express = require('express');
 var _statusCodes = require('../statusCodes.js');
-//var errorStatus = require('error-status-helper').use(_statusCodes);
 var errorStatus = require('../index.js').use(_statusCodes);
 
 var app = express();
@@ -18,4 +17,3 @@ app.use("/forbidden", function (req, res, next) {
 
 
 app.listen(3001);
-
