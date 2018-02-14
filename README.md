@@ -34,21 +34,21 @@ app.use(statusHelper.errorMiddleware);
 
 Using `sendData` packaging return values only available in express
 ```
-    register: (req, res, next) => {
-        const body = req.body;
-        return new promise((resolve, reject) => {
-            if (body.user && body.password && body.phone) {
-                return resolve(body);
-            }
-            else {
-                return reject(errorStatus.Parameter_Error);
-            }
-        }).then(data => {
-            return userInfoModule.register(body);
-        }).then(data => {
-            res.sendData(data);
-        }).catch(err => {
-            next(err, req, res);
-        });
-    }
+register: (req, res, next) => {
+    const body = req.body;
+    return new promise((resolve, reject) => {
+        if (body.user && body.password && body.phone) {
+            return resolve(body);
+        }
+        else {
+            return reject(errorStatus.Parameter_Error);
+        }
+    }).then(data => {
+        return userInfoModule.register(body);
+    }).then(data => {
+        res.sendData(data);
+    }).catch(err => {
+        next(err, req, res);
+    });
+}
 ```
