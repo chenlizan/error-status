@@ -23,6 +23,13 @@ errorStatus(express);
 
 var app = express();
 
+// catch 404 and forward to error handler
+app.use(statusHelper.notFoundMiddleware);
+
+
+// error handler
+app.use(statusHelper.errorMiddleware);
+
 ```
 
 You using in you code only available in express
@@ -39,7 +46,7 @@ You using in you code only available in express
         }).then(data => {
             return userInfoModule.register(body);
         }).then(data => {
-            res.`sendData(data)`;
+            res.sendData(data);
         }).catch(err => {
             next(err, req, res);
         });
