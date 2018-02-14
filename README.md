@@ -32,7 +32,7 @@ app.use(statusHelper.errorMiddleware);
 
 ```
 
-You using in you code only available in express
+Using `sendData` packaging return values only available in express
 ```
     register: (req, res, next) => {
         const body = req.body;
