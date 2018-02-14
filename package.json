@@ -1,6 +1,6 @@
 {
   "name": "error-status-helper",
-  "version": "1.0.8",
+  "version": "2.0.0",
   "description": "Extends node.js response middleware with status codes helper methods.",
   "main": "index.js",
   "scripts": {

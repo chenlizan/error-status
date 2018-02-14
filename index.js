@@ -1,37 +1,28 @@
 /**
- * Created by chenlizan on 16-7-14.
+ * Created by chenlizan on 18-2-14.
  */
 
-'use strict';
-
-var _statusCodes = require('./statusCodes.js');
-var _extend = false;
-
-function middleware(req, res, next) {
-    if (!_extend) {
-        Object.keys(_statusCodes).forEach(function (status) {
-            res.__proto__[status] = function (msg) {
-                if (msg) {
-                    return this.status(_statusCodes[status].code).json(msg);
-                }
-                else {
-                    return this.status(_statusCodes[status].code).json(_statusCodes[status].message);
-                }
-            };
+module.exports = function (express) {
+    express.response['sendData'] = function (data) {
+        return this.status(200).send({
+            "statusCode": 0,
+            "message": null,
+            "result": data
         });
-    }
-    _extend = true;
-    next();
-}
+    };
+};
 
-module.exports = middleware;
+module.exports.errorMiddleware = function (err, req, res, next) {
+    res.status(err.code || 500).send({
+        "statusCode": err.statusCode,
+        "message": err.message,
+        "result": null
+    });
+};
 
-module.exports.use = function use(statusCodes) {
-    if (statusCodes) {
-        _statusCodes = statusCodes;
-        return middleware;
-    }
-    else {
-        return middleware;
-    }
-}
+module.exports.notFoundMiddleware = function (req, res, next) {
+    const error = require('./statusInfo').Not_Found;
+    next(error);
+};
+
+module.exports.statusInfo = require('./statusInfo');
