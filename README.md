@@ -52,3 +52,8 @@ register: (req, res, next) => {
     });
 }
 ```
+
+Using `extendStatus` extended state information
+```
+errorStatus.extendStatus('User_Has_Registered', {code: 202, statusCode: 202001, message: "The user has been registered"});
+```
