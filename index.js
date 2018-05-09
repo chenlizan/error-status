@@ -25,4 +25,8 @@ module.exports.notFoundMiddleware = function (req, res, next) {
     next(error);
 };
 
-module.exports.statusInfo = require('./statusInfo');
+module.exports.statusInfo = statusInfo = require('./statusInfo');
+
+module.exports.extendStatus = function (name, {code, statusCode, message}) {
+    statusInfo[name] = {code: code, statusCode: statusCode, message: message};
+};
