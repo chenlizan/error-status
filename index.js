@@ -2,6 +2,8 @@
  * Created by chenlizan on 18-2-14.
  */
 
+const statusInfo = require('./statusInfo');
+
 module.exports = function (express) {
     express.response['sendData'] = function (data) {
         return this.status(200).send({
@@ -25,7 +27,7 @@ module.exports.notFoundMiddleware = function (req, res, next) {
     next(error);
 };
 
-module.exports.statusInfo = statusInfo = require('./statusInfo');
+module.exports.statusInfo = statusInfo;
 
 module.exports.extendStatus = function (name, {code, statusCode, message}) {
     statusInfo[name] = {code: code, statusCode: statusCode, message: message};
