@@ -5,10 +5,10 @@
 const statusInfo = require('./statusInfo');
 
 module.exports = function (express) {
-    express.response['sendData'] = function (data) {
+    express.response['sendData'] = function (data, message = null, statusCode = 0) {
         return this.status(200).send({
-            "statusCode": 0,
-            "message": null,
+            "statusCode": statusCode,
+            "message": message,
             "result": data
         });
     };
