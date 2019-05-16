@@ -4,9 +4,7 @@ Extends express response middleware with status codes helper methods.
 
 Installation
 ------------
-``` bash
-$ npm install error-status-helper
-```
+[![NPM](https://nodei.co/npm/error-status-helper.png)](https://nodei.co/npm/error-status-helper/)
 
 
 Example
